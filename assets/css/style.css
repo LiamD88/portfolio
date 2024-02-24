@@ -24,3 +24,13 @@
     width: 100%;
     height: 70vh;
 }
+
+/* previous projects */
+
+.project-margin1 {
+    margin-right: 20rem;
+}
+
+.project-margin2 {
+    margin-left: 20rem;
+}
