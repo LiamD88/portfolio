@@ -66,3 +66,13 @@
 .hero-2-pad {
     padding-top: 1rem;
 }
+
+/* media queries */
+
+@media (min-width: 300px) and (max-width: 575px) {
+    .image-pad {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+}
+
