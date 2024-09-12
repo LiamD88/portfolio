@@ -76,3 +76,9 @@
     }
 }
 
+@media (min-width: 300px) and (max-width: 575px) {
+    .hero-2-pad {
+        padding-top: 0.3rem;
+        padding-bottom: 0rem;
+    }
+}
