@@ -67,6 +67,8 @@
     padding-top: 1rem;
 }
 
+/* email arrow */
+
 /* media queries */
 
 @media (min-width: 300px) and (max-width: 575px) {
@@ -78,7 +80,7 @@
 
 @media (min-width: 300px) and (max-width: 575px) {
     .hero-2-pad {
-        padding-top: 0.2rem;
-        padding-bottom: 0.2rem;
+        padding-top: 0.3rem;
+        padding-bottom: 0.3rem;
     }
 }
