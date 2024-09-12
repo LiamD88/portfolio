@@ -57,8 +57,12 @@
     margin-left: 20rem;
 }
 
-
+/* padding */
 
 .email-pad {
     padding-top: 18rem;
+}
+
+.hero-2-pad {
+    padding-top: 1rem;
 }
