@@ -67,7 +67,10 @@
     padding-top: 1rem;
 }
 
-/* email arrow */
+.but-pad {
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+}
 
 /* media queries */
 
@@ -95,3 +98,8 @@
 .bg-color2 {
     background-color: #000000!important;
 }
+
+.round-button {
+    border-radius: 50rem !important;
+}
+
