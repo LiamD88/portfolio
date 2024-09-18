@@ -100,6 +100,12 @@
     }
 }
 
+@media (min-width: 300px) and (max-width: 575px) {
+    .proj-text {
+      text-align: center;
+    }
+}
+
 
 /* background colour */
 
