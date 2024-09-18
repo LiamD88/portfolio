@@ -70,7 +70,19 @@
 .but-pad {
     padding-top: 0.5rem;
     padding-bottom: 1rem;
+
 }
+
+.about-me-pad {
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+
+}
+
+.bot-pad {
+    padding-bottom: 3.5rem;
+}
+
 
 /* media queries */
 
@@ -103,3 +115,6 @@
     border-radius: 50rem !important;
 }
 
+img {
+    border: 1px solid #555;
+  }
