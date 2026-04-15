@@ -1,21 +1,45 @@
-// Wrap every letter in a span for each element with the class 'ml3'
-var textWrappers = document.querySelectorAll('.ml3');
+const revealItems = document.querySelectorAll(".reveal");
+const counters = document.querySelectorAll(".counter");
+const yearElement = document.getElementById("year");
 
-textWrappers.forEach(function(textWrapper) {
-  textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-});
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  },
+  { threshold: 0.2 }
+);
 
-anime.timeline({loop: true})
-  .add({
-    targets: '.ml3 .letter',
-    opacity: [0,1],
-    easing: "easeInOutQuad",
-    duration: 2250,
-    delay: (el, i) => 150 * (i+1)
-  }).add({
-    targets: '.ml3',
-    opacity: 0,
-    duration: 1000,
-    easing: "easeOutExpo",
-    delay: 1000
-  });
+revealItems.forEach((item) => revealObserver.observe(item));
+
+const counterObserver = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const counter = entry.target;
+      const target = Number(counter.getAttribute("data-target")) || 0;
+      const suffix = target === 100 ? "%" : "";
+      const duration = 1200;
+      const start = performance.now();
+
+      const animateCounter = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        counter.textContent = `${Math.floor(progress * target)}${suffix}`;
+        if (progress < 1) requestAnimationFrame(animateCounter);
+      };
+
+      requestAnimationFrame(animateCounter);
+      observer.unobserve(counter);
+    });
+  },
+  { threshold: 0.5 }
+);
+
+counters.forEach((counter) => counterObserver.observe(counter));
+
+if (yearElement) {
+  yearElement.textContent = new Date().getFullYear().toString();
+}
