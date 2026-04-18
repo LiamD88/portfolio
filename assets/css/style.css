@@ -130,6 +130,168 @@ body {
     font-size: 0.96rem;
 }
 
+.trust-anim {
+    position: relative;
+    height: 3.25rem;
+    margin: 0 auto 0.55rem;
+}
+
+.dev-station {
+    width: 4rem;
+}
+
+.desk-screen {
+    position: absolute;
+    top: 0.35rem;
+    left: 50%;
+    width: 2.65rem;
+    height: 1.55rem;
+    border: 1px solid rgba(191, 214, 255, 0.7);
+    border-radius: 0.25rem;
+    background: linear-gradient(180deg, rgba(63, 126, 255, 0.45), rgba(63, 126, 255, 0.08));
+    transform: translateX(-50%);
+    box-shadow: inset 0 0 10px rgba(120, 168, 255, 0.35);
+}
+
+.desk-user {
+    position: absolute;
+    bottom: 0.2rem;
+    left: 50%;
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50% 50% 36% 36%;
+    background: rgba(255, 255, 255, 0.86);
+    transform: translateX(-50%);
+    animation: userNod 2.4s ease-in-out infinite;
+}
+
+.desk-user::before {
+    content: "";
+    position: absolute;
+    top: -0.45rem;
+    left: 0.2rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.desk-glow {
+    position: absolute;
+    bottom: 0.45rem;
+    left: 50%;
+    width: 3.4rem;
+    height: 0.35rem;
+    border-radius: 999px;
+    background: rgba(120, 168, 255, 0.32);
+    transform: translateX(-50%);
+    filter: blur(2px);
+    animation: glowPulse 2.4s ease-in-out infinite;
+}
+
+.code-window {
+    width: 4.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.35rem;
+    background: rgba(7, 10, 18, 0.9);
+    overflow: hidden;
+}
+
+.window-head {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.55rem;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.code-line {
+    position: absolute;
+    left: 0.5rem;
+    height: 0.14rem;
+    border-radius: 999px;
+    background: rgba(120, 168, 255, 0.75);
+}
+
+.line-one {
+    top: 1rem;
+    width: 2.6rem;
+    animation: codeType 2.2s steps(10, end) infinite;
+}
+
+.line-two {
+    top: 1.45rem;
+    width: 1.95rem;
+    animation: codeType 2.2s steps(8, end) infinite;
+    animation-delay: 0.25s;
+}
+
+.line-three {
+    top: 1.9rem;
+    width: 2.25rem;
+    animation: codeType 2.2s steps(9, end) infinite;
+    animation-delay: 0.45s;
+}
+
+.code-caret {
+    position: absolute;
+    top: 1.82rem;
+    left: 2.8rem;
+    width: 0.08rem;
+    height: 0.35rem;
+    background: #ffffff;
+    animation: caretBlink 0.9s steps(1, end) infinite;
+}
+
+.browser-flow {
+    width: 4.4rem;
+}
+
+.flow-window {
+    position: absolute;
+    top: 0.32rem;
+    left: 50%;
+    width: 2.7rem;
+    height: 1.35rem;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 0.3rem;
+    transform: translateX(-50%);
+}
+
+.flow-path {
+    position: absolute;
+    bottom: 0.55rem;
+    left: 0.5rem;
+    width: 3.4rem;
+    height: 0.18rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+}
+
+.flow-path::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 38%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(120, 168, 255, 0), rgba(120, 168, 255, 0.95), rgba(120, 168, 255, 0));
+    animation: flowSweep 2.1s ease-in-out infinite;
+}
+
+.flow-node {
+    position: absolute;
+    bottom: 0.36rem;
+    left: 0.5rem;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    border: 1px solid rgba(191, 214, 255, 0.8);
+    background: rgba(120, 168, 255, 0.35);
+    animation: flowMove 2.1s ease-in-out infinite;
+}
+
 .image-shell {
     border-radius: 1rem;
     overflow: hidden;
@@ -243,6 +405,79 @@ body {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes userNod {
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-0.08rem);
+    }
+}
+
+@keyframes glowPulse {
+    0%,
+    100% {
+        opacity: 0.42;
+        width: 3.1rem;
+    }
+
+    50% {
+        opacity: 0.78;
+        width: 3.45rem;
+    }
+}
+
+@keyframes codeType {
+    0%,
+    15% {
+        width: 0;
+        opacity: 0.55;
+    }
+
+    50%,
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes caretBlink {
+    0%,
+    45% {
+        opacity: 1;
+    }
+
+    46%,
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes flowSweep {
+    0% {
+        transform: translateX(-120%);
+    }
+
+    100% {
+        transform: translateX(270%);
+    }
+}
+
+@keyframes flowMove {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(2.85rem);
     }
 }
 
